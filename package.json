@@ -1,0 +1,78 @@
+{
+  "name": "assemblyscript-unittest-framework",
+  "version": "1.0.0",
+  "description": "assemblyscript unit test framework",
+  "main": "assembly/index.ts",
+  "bin": {
+    "as-test": "./bin/as-test.js"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">= 16.0.0"
+  },
+  "prettier": "@schleifner/prettier-config",
+  "scripts": {
+    "prepublishOnly": "git stash && npm run build && npm run test",
+    "prepare": "husky install",
+    "preversion": "npm run lint && npm run build && npm run test",
+    "prebuild": "npx tsc --build ./transform/tsconfig.json",
+    "build": "node ./build/esbuild.js",
+    "test": "node bin/as-test.js --config ./as-test.config.cjs && cross-env NODE_OPTIONS=--experimental-vm-modules jest",
+    "lint": "eslint src assembly tests-ts/test --max-warnings=0 && prettier assembly -c --config ./assembly/.prettierrc",
+    "lint:fix": "eslint src assembly --fix",
+    "example": "node bin/as-test.js --config example/as-test.config.cjs"
+  },
+  "dependencies": {
+    "@assemblyscript/loader": ">=0.25.1",
+    "@assemblyscript/wasi-shim": "^0.1.0",
+    "wasm-instrumentation": "1.0.0",
+    "chalk": "^5.2.0",
+    "commander": "^8.3.0",
+    "cross-spawn": "^7.0.3",
+    "fs-extra": "^11.1.1",
+    "glob": "^10.2.6",
+    "ignore": "^5.2.4",
+    "semver": "^7.5.3"
+  },
+  "peerDependencies": {
+    "assemblyscript": "0.27.22"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.1",
+    "@schleifner/eslint-config-base": "^1.0.2",
+    "@schleifner/prettier-config": "^1.0.0",
+    "@sprout2000/esbuild-copy-plugin": "^1.1.8",
+    "@types/cross-spawn": "^6.0.2",
+    "@types/fs-extra": "^9.0.13",
+    "@types/glob": "^7.2.0",
+    "@types/jest": "^29.5.2",
+    "@types/node": "^20.9.1",
+    "assemblyscript-prettier": "^2.0.2",
+    "cross-env": "^7.0.3",
+    "esbuild": "^0.17.19",
+    "husky": "^7.0.4",
+    "jest": "^29.5.0",
+    "prettier": "^3.0.0",
+    "ts-jest": "^29.1.0",
+    "ts-loader": "^9.2.6",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4"
+  },
+  "keywords": [
+    "Assemblyscript",
+    "WASM",
+    "test"
+  ],
+  "publishConfig": {
+    "repository": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Schleifner/assemblyscript-unittest-framework.git"
+  },
+  "contributors": [
+    "Congcong Cai <congcongcai0907@163.com>",
+    "XMadrid <xinquan0203@163.com>"
+  ],
+  "license": "Apache-2.0"
+}
