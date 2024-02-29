@@ -113,7 +113,7 @@ module.exports = {
   // runtime: "node",
 
   // optional: define the compiler-path outside the local repository; uses "npx asc" by default which requires assemblyscript dependency in job folder
-  // compiler: "node ../wasm-toolchain/node_modules/assemblyscript/bin/asc",
+  // compiler: "node ./node_modules/assemblyscript/bin/asc",
 
   /**  optional: template file path, default "coverage" */
   // temp: "coverage",

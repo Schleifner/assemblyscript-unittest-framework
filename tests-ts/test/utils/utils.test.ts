@@ -52,7 +52,7 @@ test("json2map", () => {
 });
 
 test("checkFunctionName", () => {
-  expect(checkFunctionName("source/someip.ts", "source/someip/addNewEntryToProvisioningArray")).toEqual(true);
+  expect(checkFunctionName("source/someip.ts", "source/someip/myMethod")).toEqual(true);
   expect(checkFunctionName("source/someip.ts", "start:source/someip~anonymous|3~anonymous|1")).toEqual(true);
 });
 

@@ -24,7 +24,7 @@ export async function instrument(sourceWasms: string[], sourceCodePaths: string[
       expectInfoFile,
       includeFilter,
     ].map((s) => instrumenter.allocateUTF8(s));
-    instrumenter._cdc_instrument(source, output, report, sourceMap, expectInfo, debugInfo, include, null, true);
+    instrumenter._wasm_instrument(source, output, report, sourceMap, expectInfo, debugInfo, include, null, true);
     const result: InstrumentResult = {
       sourceWasm: sourceFile,
       instrumentedWasm: outputFile,
