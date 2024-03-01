@@ -52,8 +52,8 @@ test("json2map", () => {
 });
 
 test("checkFunctionName", () => {
-  expect(checkFunctionName("source/someip.ts", "source/someip/myMethod")).toEqual(true);
-  expect(checkFunctionName("source/someip.ts", "start:source/someip~anonymous|3~anonymous|1")).toEqual(true);
+  expect(checkFunctionName("source/api.ts", "source/api/myMethod")).toEqual(true);
+  expect(checkFunctionName("source/api.ts", "start:source/api~anonymous|3~anonymous|1")).toEqual(true);
 });
 
 test("checkGenerics", () => {
