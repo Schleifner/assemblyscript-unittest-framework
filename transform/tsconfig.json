@@ -6,16 +6,10 @@
     "esModuleInterop": true,
     "outDir": ".",
     "paths": {
-      "assemblyscript": [
-        "../node_modules/assemblyscript/dist/assemblyscript"
-      ],
-      "assemblyscript/transform": [
-        "../node_modules/assemblyscript/dist/transform"
-      ]
+      "assemblyscript": ["../node_modules/assemblyscript/dist/assemblyscript"],
+      "assemblyscript/transform": ["../node_modules/assemblyscript/dist/transform"]
     }
   },
-  "include": [
-    "listFunctions.mts"
-  ],
+  "include": ["listFunctions.mts"],
   "exclude": []
 }

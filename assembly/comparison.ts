@@ -34,7 +34,9 @@ function equalArrayBuffer<T>(a: T, b: T): bool {
     }
   }
   for (let i = 0; i < remainder; i++) {
-    if (load<u8>(aRef + wordSize * 4 + i) != load<u8>(bRef + wordSize * 4 + i)) {
+    if (
+      load<u8>(aRef + wordSize * 4 + i) != load<u8>(bRef + wordSize * 4 + i)
+    ) {
       return false;
     }
   }
@@ -114,6 +116,8 @@ export function equal<T>(a: T, b: T): bool {
   if (nonnull_a instanceof Set && nonnull_b instanceof Set) {
     return equalSet(nonnull_a, nonnull_b);
   }
-  ERROR("type is not supported to equal, hint: cannot comparison user-defined object");
+  ERROR(
+    "type is not supported to equal, hint: cannot comparison user-defined object",
+  );
   return false;
 }
