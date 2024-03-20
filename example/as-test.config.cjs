@@ -1,4 +1,3 @@
-
 module.exports = {
   include: ["example"],
   exclude: ["assembly/coverageCollector.ts", "assembly/mock.ts"],
