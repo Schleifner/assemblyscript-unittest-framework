@@ -12,5 +12,8 @@ export class MockFn {
   get calls(): u32 {
     return mockFunctionStatus.getCalls(this.oldIndex, this.newIndex);
   }
-  constructor(public oldIndex: u32, public newIndex: u32) {}
+  constructor(
+    public oldIndex: u32,
+    public newIndex: u32,
+  ) {}
 }

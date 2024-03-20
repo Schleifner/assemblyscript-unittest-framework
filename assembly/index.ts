@@ -1,5 +1,11 @@
 import { Value } from "./expect";
-import { describeImpl, mockImpl, remockImpl, testImpl, unmockImpl } from "./implement";
+import {
+  describeImpl,
+  mockImpl,
+  remockImpl,
+  testImpl,
+  unmockImpl,
+} from "./implement";
 import { output } from "./output";
 import { MockFn } from "./mockInstrument";
 export { MockFn } from "./mockInstrument";
@@ -28,7 +34,10 @@ export function test(description: string, testFunction: () => void): void {
  * @param newFunction the new function.
  * @returns Mock Status { callTime : u32}
  */
-export function mock<T extends Function>(oldFunction: T, newFunction: T): MockFn {
+export function mock<T extends Function>(
+  oldFunction: T,
+  newFunction: T,
+): MockFn {
   return mockImpl<T>(oldFunction, newFunction);
 }
 /**

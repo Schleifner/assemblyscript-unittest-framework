@@ -67,10 +67,15 @@ function getArgs(): string[] {
   const argv_total_string = new ArrayBuffer(i32(argv_total_size));
   checkMemory(changetype<usize>(argv_ptr_array) + (argc + 1) * sizeof<usize>());
   checkMemory(changetype<usize>(argv_total_string) + argv_total_size);
-  ret = args_get(changetype<usize>(argv_ptr_array), changetype<usize>(argv_total_string));
+  ret = args_get(
+    changetype<usize>(argv_ptr_array),
+    changetype<usize>(argv_total_string),
+  );
   perror("args_get");
   for (let i: usize = 0; i < argc; i++) {
-    const argv_ptr = load<usize>(changetype<usize>(argv_ptr_array) + i * sizeof<usize>());
+    const argv_ptr = load<usize>(
+      changetype<usize>(argv_ptr_array) + i * sizeof<usize>(),
+    );
     const arg = fromCString(argv_ptr);
     args.push(arg);
   }
@@ -90,10 +95,18 @@ function writeFile(path: string, data: string): void {
     changetype<usize>(utf8path),
     utf8path.byteLength,
     oflags.CREAT | oflags.TRUNC,
-    rights.FD_WRITE | rights.FD_SEEK | rights.FD_TELL | rights.FD_FILESTAT_GET | rights.PATH_CREATE_FILE,
-    rights.FD_WRITE | rights.FD_SEEK | rights.FD_TELL | rights.FD_FILESTAT_GET | rights.PATH_CREATE_FILE,
+    rights.FD_WRITE |
+      rights.FD_SEEK |
+      rights.FD_TELL |
+      rights.FD_FILESTAT_GET |
+      rights.PATH_CREATE_FILE,
+    rights.FD_WRITE |
+      rights.FD_SEEK |
+      rights.FD_TELL |
+      rights.FD_FILESTAT_GET |
+      rights.PATH_CREATE_FILE,
     fdflags.SYNC,
-    fdptr
+    fdptr,
   );
   perror("path_open");
   const fileDescriptor: fd = load<fd>(fdptr);

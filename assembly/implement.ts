@@ -1,7 +1,10 @@
 import { assertResult } from "./assertCollector";
 import { MockFn, mockFunctionStatus } from "./mockInstrument";
 
-export function describeImpl(description: string, testsFunction: () => void): void {
+export function describeImpl(
+  description: string,
+  testsFunction: () => void,
+): void {
   assertResult.addDescription(description);
   testsFunction();
   assertResult.removeDescription();
@@ -13,7 +16,10 @@ export function testImpl(description: string, testFunction: () => void): void {
   mockFunctionStatus.clear();
 }
 
-export function mockImpl<T extends Function>(oldFunction: T, newFunction: T): MockFn {
+export function mockImpl<T extends Function>(
+  oldFunction: T,
+  newFunction: T,
+): MockFn {
   if (!isFunction<T>(oldFunction) || !isFunction<T>(newFunction)) {
     ERROR("mock paramemter receive a function");
   }

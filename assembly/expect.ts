@@ -2,6 +2,7 @@ import { equal, isNull } from "./comparison";
 import { assertResult } from "./assertCollector";
 import { toJson } from "./formatPrint";
 
+
 @inline
 const EXPECT_MAX_INDEX = 2147483647;
 
@@ -11,11 +12,21 @@ export class Value<T> {
     this.data = _data;
   }
   isNull(codeInfoIndex: u32 = EXPECT_MAX_INDEX): Value<T> {
-    assertResult.collectCheckResult(isNull<T>(this.data), codeInfoIndex, toJson(this.data), "to be null");
+    assertResult.collectCheckResult(
+      isNull<T>(this.data),
+      codeInfoIndex,
+      toJson(this.data),
+      "to be null",
+    );
     return this;
   }
   notNull(codeInfoIndex: u32 = EXPECT_MAX_INDEX): Value<T> {
-    assertResult.collectCheckResult(!isNull<T>(this.data), codeInfoIndex, toJson(this.data), "notNull");
+    assertResult.collectCheckResult(
+      !isNull<T>(this.data),
+      codeInfoIndex,
+      toJson(this.data),
+      "notNull",
+    );
     return this;
   }
 
@@ -24,7 +35,7 @@ export class Value<T> {
       equal<T>(this.data, checkValue),
       codeInfoIndex,
       toJson(this.data),
-      "= " + toJson(checkValue)
+      "= " + toJson(checkValue),
     );
     return this;
   }
@@ -33,7 +44,7 @@ export class Value<T> {
       !equal<T>(this.data, checkValue),
       codeInfoIndex,
       toJson(this.data),
-      " != " + toJson(checkValue)
+      " != " + toJson(checkValue),
     );
     return this;
   }
@@ -43,16 +54,19 @@ export class Value<T> {
       this.data > checkValue,
       codeInfoIndex,
       toJson(this.data),
-      " > " + toJson(checkValue)
+      " > " + toJson(checkValue),
     );
     return this;
   }
-  greaterThanOrEqual(checkValue: T, codeInfoIndex: u32 = EXPECT_MAX_INDEX): Value<T> {
+  greaterThanOrEqual(
+    checkValue: T,
+    codeInfoIndex: u32 = EXPECT_MAX_INDEX,
+  ): Value<T> {
     assertResult.collectCheckResult(
       this.data >= checkValue,
       codeInfoIndex,
       toJson(this.data),
-      " >= " + toJson(checkValue)
+      " >= " + toJson(checkValue),
     );
     return this;
   }
@@ -61,28 +75,35 @@ export class Value<T> {
       this.data < checkValue,
       codeInfoIndex,
       toJson(this.data),
-      " < " + toJson(checkValue)
+      " < " + toJson(checkValue),
     );
     return this;
   }
-  lessThanOrEqual(checkValue: T, codeInfoIndex: u32 = EXPECT_MAX_INDEX): Value<T> {
+  lessThanOrEqual(
+    checkValue: T,
+    codeInfoIndex: u32 = EXPECT_MAX_INDEX,
+  ): Value<T> {
     assertResult.collectCheckResult(
       this.data <= checkValue,
       codeInfoIndex,
       toJson(this.data),
-      " <= " + toJson(checkValue)
+      " <= " + toJson(checkValue),
     );
     return this;
   }
 
-  closeTo(checkValue: T, delta: number, codeInfoIndex: u32 = EXPECT_MAX_INDEX): Value<T> {
+  closeTo(
+    checkValue: T,
+    delta: number,
+    codeInfoIndex: u32 = EXPECT_MAX_INDEX,
+  ): Value<T> {
     const data = this.data;
     if (isFloat<T>(checkValue) && isFloat<T>(data)) {
       assertResult.collectCheckResult(
         abs(data - checkValue) < delta,
         codeInfoIndex,
         toJson(this.data),
-        " closeTo " + toJson(checkValue)
+        " closeTo " + toJson(checkValue),
       );
     } else {
       ERROR("closeTo should only be used in f32 | f64");

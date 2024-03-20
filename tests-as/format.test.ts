@@ -9,7 +9,7 @@ describe("print", () => {
   });
   test("ArrayBuffer", () => {
     let a: Array<i32> = [1, 3];
-    expect(toJson(changetype<ArrayBuffer>(a.dataStart))).equal("[1, 0, 0, 0, 3, 0, 0, 0]")
+    expect(toJson(changetype<ArrayBuffer>(a.dataStart))).equal("[1, 0, 0, 0, 3, 0, 0, 0]");
   });
   test("set", () => {
     const set = new Set<i32>();

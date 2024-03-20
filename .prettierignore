@@ -1,11 +1,6 @@
-.vscode
-build/
-coverage/
-coverage-ts/
-dist/
-node_modules/
-transform/*.mjs
-tests-ts/fixture
-.*
-
-assembly/
+/coverage
+/coverage-ts
+/dist
+/node_modules
+/transform/*.mjs
+/tests-ts/fixture

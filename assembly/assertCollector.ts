@@ -6,18 +6,27 @@ class AssertResultCollector {
   failed_info: Map<string, string[][]> = new Map();
   currentTestDescriptions: string[] = [];
 
-  addDescription(descript: string): void {
-    this.currentTestDescriptions.push(descript);
+  addDescription(description: string): void {
+    this.currentTestDescriptions.push(description);
   }
   removeDescription(): void {
     this.currentTestDescriptions.pop();
   }
-  collectCheckResult(result: bool, codeInfoIndex: u32, actualValue: string, expectValue: string): void {
+  collectCheckResult(
+    result: bool,
+    codeInfoIndex: u32,
+    actualValue: string,
+    expectValue: string,
+  ): void {
     this.total++;
     if (!result) {
       this.fail++;
       const testCaseFullName = this.currentTestDescriptions.join(" - ");
-      const assertMessage = [codeInfoIndex.toString(), actualValue, expectValue];
+      const assertMessage = [
+        codeInfoIndex.toString(),
+        actualValue,
+        expectValue,
+      ];
       if (this.failed_info.has(testCaseFullName)) {
         this.failed_info.get(testCaseFullName).push(assertMessage);
       } else {
