@@ -1,6 +1,6 @@
 # Assemblyscript Unittest Framework
 
-## Getting Start
+## Getting Started
 
 Install Assemblyscript Unittest Framework using npm
 
@@ -85,7 +85,7 @@ module.exports = {
   flags: "",
 
   /**
-   * optional: imports function, only available in node executor
+   * optional: import functions
    * @param {ImportsArgument} runtime
    * @returns
    */
@@ -107,9 +107,6 @@ module.exports = {
       },
     };
   },
-
-  /**  optional: unit test executor, use "node" or <c++ runtime path> */
-  // runtime: "node",
 
   /**  optional: template file path, default "coverage" */
   // temp: "coverage",
@@ -195,8 +192,8 @@ In this mock function, you can do every thing include expecting arguments, mock 
 
 Tips:
 
-- Because Assemblyscript is a strong type language, you should keep the function signaturre align.
-- Because Assemblyscript don't have closure, if a mock function will be called serval times in one test, and you want to return different value or match arguments to different value, Using a global count for this function is a good way.
+- Because Assemblyscript is a strongly typed language, you should keep the function signature aligned.
+- AssemblyScript does not support closures. If a mock function needs to be called several times in one test, and you want it to return different values or match arguments to different values, using a global counter for this function is a good way to achieve this.
 
 ### Example for MockFn
 

@@ -1,5 +1,3 @@
-// const { ImportsArgument } = require("assemblyscript-unittest-framework/dist");
-
 module.exports = {
   /** file include in test */
   include: ["assembly", "tests-as"],
@@ -11,16 +9,13 @@ module.exports = {
   flags: "",
 
   /**
-   * optional: imports function, only available in node executor
+   * optional: import functions
    * @param {ImportsArgument} runtime
    * @returns
    */
   imports(runtime) {
     return {};
   },
-
-  /** optional: unit test executor, use "node" or <some other runtime path>, default is "node" */
-  runtime: "node",
 
   /** optional: template file path, default "coverage" */
   temp: "coverage",

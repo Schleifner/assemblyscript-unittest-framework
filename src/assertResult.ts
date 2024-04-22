@@ -1,5 +1,4 @@
 import { promises } from "node:fs";
-import assert from "node:assert";
 import { json2map } from "./utils/index.js";
 import { AssertErrorMessages, AssertMessages, ErrorMessages, ExpectInfo, IAssertResult } from "./interface.js";
 
@@ -23,10 +22,9 @@ export class AssertResult {
           for (const msg of value) {
             const [index, actualValue, expectValue] = msg;
             const debugLocation = expectInfo.get(index);
-            assert(debugLocation !== undefined);
-            let errorMsg = `${debugLocation}\tvalue: ${actualValue}\texpect: ${expectValue}`;
+            let errorMsg = `${debugLocation ?? ""}\tvalue: ${actualValue}\texpect: ${expectValue}`;
             if (errorMsg.length > 160) {
-              errorMsg = `${debugLocation}\nvalue: \n\t${actualValue}\nexpect: \n\t${expectValue}`;
+              errorMsg = `${debugLocation ?? ""}\nvalue: \n\t${actualValue}\nexpect: \n\t${expectValue}`;
             }
             errorMsgs.push(errorMsg);
           }

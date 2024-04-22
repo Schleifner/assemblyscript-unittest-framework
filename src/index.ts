@@ -59,7 +59,6 @@ export interface FileOption {
 export interface TestOption {
   flags: string;
   imports: Imports;
-  runtime: string;
 }
 export interface OutputOption {
   tempFolder: string;
@@ -82,7 +81,7 @@ export async function start_unit_test(fo: FileOption, to: TestOption, oo: Output
   console.log(chalk.blueBright("compile testcases: ") + chalk.bold.greenBright("OK"));
   const instrumentResult = await instrument(wasmPaths, Array.from(unittestPackage.sourceFunctions.keys()));
   console.log(chalk.blueBright("instrument: ") + chalk.bold.greenBright("OK"));
-  const executedResult = await execWasmBinarys(to.runtime, oo.tempFolder, instrumentResult, to.imports);
+  const executedResult = await execWasmBinarys(oo.tempFolder, instrumentResult, to.imports);
   console.log(chalk.blueBright("execute testcases: ") + chalk.bold.greenBright("OK"));
   logAssertResult(executedResult);
   const debugInfoFiles = instrumentResult.map((res) => res.debugInfo);

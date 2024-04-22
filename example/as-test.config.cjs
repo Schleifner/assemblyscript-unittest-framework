@@ -6,17 +6,13 @@ module.exports = {
   flags: "",
 
   /**
-   * imports function, only available in node executor
+   * import functions
    * @param {ImportsArgument} runtime
    * @returns
    */
   imports(runtime) {
     return {};
   },
-
-  /** unit test executor, use "node" or <c++ runtime path> */
-  // runtime: "../wasm-minisim-mgu/build/mini-job-runtime/mini-job-runtime",
-  runtime: "node",
 
   /** template file path, default "coverage" */
   temp: "coverage",

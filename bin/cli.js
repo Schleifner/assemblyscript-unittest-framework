@@ -16,7 +16,6 @@ program
   .option("--temp <path>", "test template file folder")
   .option("--output <path>", "coverage report output folder")
   .option("--mode <output mode>", "test result output format")
-  .option("--runtime <runtime path | 'node'>", "path of runtime")
   .option("--coverageLimit [error warning...]", "set warn(yellow) and error(red) upper limit in coverage report");
 
 program.parse(process.argv);
@@ -46,7 +45,6 @@ let testcases = options.testcase;
 let flags = config.flags || "";
 let imports = config.imports || null;
 
-let runtime = options.runtime || config.runtime || "node";
 let mode = options.mode || config.mode || "table";
 
 let tempFolder = options.temp || config.temp || "coverage";
@@ -58,7 +56,7 @@ let warnLimit = options.coverageLimit?.at(1);
 validatArgument(includes, excludes);
 start_unit_test(
   { includes, excludes, testcases },
-  { flags, imports, runtime },
+  { flags, imports },
   { tempFolder, outputFolder, mode, warnLimit, errorLimit }
 )
   .then((success) => {

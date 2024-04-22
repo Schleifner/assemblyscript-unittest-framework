@@ -41,7 +41,6 @@ export interface DebugInfo {
   debugFiles: string[];
 }
 
-// input c++ runtime
 export type CovTrace = [FunctionIndex, CodeSnippetIndex];
 export type TestCaseName = string;
 
@@ -144,3 +143,6 @@ export interface SourceFunctionInfo {
   name: string;
   range: [number, number];
 }
+
+export const OrganizationName = "Schleifner";
+export const Repository = "https://github.com/Schleifner/assemblyscript-unittest-framework";
