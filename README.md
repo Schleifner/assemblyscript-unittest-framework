@@ -1,5 +1,10 @@
 # Assemblyscript Unittest Framework
 
+A comprehensive AssemblyScript testing solution, offering developers a robust suite of features to ensure their code performs as expected:
+- Function Mocking
+- Coverage statistics
+- Expectations
+
 ## Getting Started
 
 Install Assemblyscript Unittest Framework using npm
@@ -73,9 +78,6 @@ You can also use `npx as-test -h` for more information to control detail configu
 This is the template of `as-test.config.js`:
 
 ```javascript
-// jsdoc can help vscode intellisense
-const { ImportsArgument } = require("assemblyscript-unittest-framework/dist");
-
 module.exports = {
   // test related code folder
   include: ["source", "tests"],
@@ -238,3 +240,8 @@ Tips:
 ## Coverage Report
 
 After testing, you can get a html / json / table format test coverage report include "Statements Coverage", "Branches Coverage", "Functions Coverage", "Lines Coverage"
+
+## Architecture
+
+- `assembly/` written in Assemblyscript, provides user-accessible testing APIs such as test, inspect, mock, etc.
+- `src/` written in Typescript, implements the test functionality.
