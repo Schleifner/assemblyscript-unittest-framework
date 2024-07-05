@@ -1,0 +1,6 @@
+/coverage
+/coverage-ts
+/dist
+/node_modules
+/transform/*.mjs
+/tests-ts/fixture
