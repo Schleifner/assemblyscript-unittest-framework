@@ -65,8 +65,18 @@
     "url": "https://github.com/Schleifner/assemblyscript-unittest-framework.git"
   },
   "contributors": [
-    "Congcong Cai <congcongcai0907@163.com>",
+    "Congcong Cai <congcong.cai@bmw.com>",
     "XMadrid <xinquan0203@163.com>"
   ],
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "files": [
+    "assembly/**/*",
+    "bin/**/*",
+    "dist/**/*",
+    "docs/**/*",
+    "example/**/*",
+    "transform/**/*",
+    "LICENSE",
+    "README.md"
+  ]
 }
