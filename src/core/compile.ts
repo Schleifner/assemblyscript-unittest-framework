@@ -20,6 +20,7 @@ export async function compile(testCodePaths: string[], outputFolder: string, com
       "_start",
       "--sourceMap",
       "--debug",
+      "-O0",
     ];
     if (compileFlags) {
       const argv = compileFlags.split(" ");
