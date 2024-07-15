@@ -84,7 +84,7 @@ module.exports = {
   include: ["source", "tests"],
   exclude: [],
 
-  /** optional: assemblyscript compile flag, default is --exportStart _start */
+  /** optional: assemblyscript compile flag, default is --exportStart _start -O0 */
   flags: "",
 
   /**

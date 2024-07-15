@@ -64,6 +64,7 @@ async function transform(sourceCodePath: string, transformFunction: string) {
     "--disableWarning",
     "--transform",
     transformFunction,
+    "-O0",
   ]);
   if (error) {
     // eslint-disable-next-line @typescript-eslint/no-base-to-string
