@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   /** file include in test */
   include: ["assembly", "tests-as"],
 

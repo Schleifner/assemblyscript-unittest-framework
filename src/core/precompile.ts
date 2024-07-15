@@ -23,11 +23,11 @@ export async function precompile(
   const testCodePaths = testcases ?? getRelatedFiles(includes, excludes, (path: string) => path.endsWith(".test.ts"));
 
   const sourceCodePaths = getRelatedFiles(includes, excludes, (path: string) => !path.endsWith(".test.ts"));
-  const sourceCodeTransfroms: Promise<void>[] = [];
+  const sourceCodeTransforms: Promise<void>[] = [];
   for (const sourceCodePath of sourceCodePaths.values()) {
-    sourceCodeTransfroms.push(transform(sourceCodePath, transformFunction));
+    sourceCodeTransforms.push(transform(sourceCodePath, transformFunction));
   }
-  await Promise.all(sourceCodeTransfroms);
+  await Promise.all(sourceCodeTransforms);
 
   return {
     testCodePaths,
@@ -43,11 +43,11 @@ export function getRelatedFiles(includes: string[], excludes: string[], filter: 
   const exc = ignore.default().add(excludes);
 
   for (const path of includeFiles) {
-    const relativedPath = relative(".", path);
-    if (relativedPath.startsWith("..")) {
+    const relativePath = relative(".", path);
+    if (relativePath.startsWith("..")) {
       throw new Error(`file ${path} out of scope (${resolve(".")})`);
     }
-    if (exc.ignores(relativedPath)) {
+    if (exc.ignores(relativePath)) {
       continue; // ab
     }
     if (filter(path)) {
