@@ -1,6 +1,6 @@
 {
   "name": "assemblyscript-unittest-framework",
-  "version": "1.0.1",
+  "version": "0.0.0",
   "description": "assemblyscript unit test framework",
   "main": "assembly/index.ts",
   "bin": {
@@ -31,7 +31,7 @@
     "wasm-instrumentation": "1.1.0"
   },
   "peerDependencies": {
-    "assemblyscript": "0.27.22"
+    "assemblyscript": ">=0.25.1"
   },
   "devDependencies": {
     "@schleifner/eslint-config-base": "^1.0.2",
