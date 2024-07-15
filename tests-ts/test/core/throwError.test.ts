@@ -20,7 +20,7 @@ const { precompile } = await import("../../../src/core/precompile.js");
 const { compile } = await import("../../../src/core/compile.js");
 
 test("transform error", async () => {
-  const transfromFunction = join(
+  const transformFunction = join(
     fileURLToPath(new URL(".", import.meta.url)),
     "..",
     "..",
@@ -30,12 +30,12 @@ test("transform error", async () => {
   );
   expect(jest.isMockFunction(main)).toBeTruthy();
   await expect(async () => {
-    await precompile(["tests-ts/fixture/transformFunction.ts"], [], [], transfromFunction);
-  }).rejects.toThrowError("mock asc.main() error");
+    await precompile(["tests-ts/fixture/transformFunction.ts"], [], [], transformFunction);
+  }).rejects.toThrow("mock asc.main() error");
 });
 
 test("compile error", async () => {
   await expect(async () => {
     await compile(["non-exist.ts"], "mockFolder", "");
-  }).rejects.toThrowError("mock asc.main() error");
+  }).rejects.toThrow("mock asc.main() error");
 });

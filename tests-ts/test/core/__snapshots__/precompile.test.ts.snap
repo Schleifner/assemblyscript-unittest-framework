@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`listFunction transfrom 1`] = `
+exports[`listFunction transform 1`] = `
 Map {
   "tests-ts/fixture/transformFunction.ts" => [
     {

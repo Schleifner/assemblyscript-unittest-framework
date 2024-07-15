@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   include: ["example"],
   exclude: ["assembly/coverageCollector.ts", "assembly/mock.ts"],
 

@@ -41,8 +41,18 @@ endTest();  // Don't forget it!
 
 Create a config file in project root `as-test.config.js`:
 
+for cjs:
+
 ```javascript
 module.exports = {
+  include: ["source", "tests"],
+};
+```
+
+for mjs:
+
+```javascript
+export default {
   include: ["source", "tests"],
 };
 ```
